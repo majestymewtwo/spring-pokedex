@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}" ></title>
+    <link rel="shortcut icon" href="https://img.freepik.com/free-icon/pokeball_318-331350.jpg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen relative">
+    <div class="h-[50vh] bg-red-600 w-full border-b-8 border-slate-700"></div>
+    <div class="h-[50vh] bg-[#F6F4EB] w-full"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full border-8 border-slate-700 bg-white"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-slate-700"></div>
+    <div class="flex flex-col justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 rounded-lg bg-white shadow-lg hover:shadow-2xl cursor-pointer transition-all ease-in-out duration-250">
+        <div>
+            <div class="flex space-x-4 justify-between items-center">
+                <h1 th:text="${pokemon.name[0].toUpperCase() + pokemon.name.substring(1)}" class="font-bold text-3xl tex-slate-700"></h1>
+                <div class="flex">
+                    <img th:src="${pokemon.sprites.front_default}" alt="Back Default Image" class="h-14 w-14">
+                    <img th:src="${pokemon.sprites.back_default}" alt="Front Default Image" class="h-14 w-14">
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <img th:src="${pokemon.sprites.getOther().getDream_world().front_default}" alt="Front Default Image - Dream World" class="h-[200px] w-[200px]">
+                <img th:src="${pokemon.sprites.getOther().getHome().front_default}" alt="Front Default Image - Home" class="h-[200px] w-[200px]">
+            </div>
+            <div class="flex flex-wrap justify-center space-x-6 font-bold text-lg text-slate-700">
+                <span th:each="type : ${pokemon.getTypes()}">
+                    <h1 th:text="${type.getType().name[0].toUpperCase() + type.getType().name.substring(1)}"></h1>
+                </span>
+            </div>
+        </div>
+        <div class="flex flex-col text-xl">
+            <div class="flex justify-between">
+                <h1 class="font-bold text-slate-700">HP</h1>
+                <h1 th:text="${pokemon.getStats().get(0).getBase_stat()}"></h1>
+            </div>
+            <div class="flex justify-between">
+                <h1 class="font-bold text-slate-700">Attack</h1>
+                <h1 th:text="${pokemon.getStats().get(1).getBase_stat()}"></h1>
+            </div>
+            <div class="flex justify-between">
+                <h1 class="font-bold text-slate-700">Defense</h1>
+                <h1 th:text="${pokemon.getStats().get(2).getBase_stat()}"></h1>
+            </div>
+            <div class="flex justify-between">
+                <h1 class="font-bold text-slate-700">Special Attack</h1>
+                <h1 th:text="${pokemon.getStats().get(3).getBase_stat()}"></h1>
+            </div>
+            <div class="flex justify-between">
+                <h1 class="font-bold text-slate-700">Special Defense</h1>
+                <h1 th:text="${pokemon.getStats().get(4).getBase_stat()}"></h1>
+            </div>
+            <div class="flex justify-between">
+                <h1 class="font-bold text-slate-700">Speed</h1>
+                <h1 th:text="${pokemon.getStats().get(5).getBase_stat()}"></h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="https://img.freepik.com/free-icon/pokeball_318-331350.jpg" type="image/x-icon">
+    <title>Pokedex - Welcome to Pokedex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen relative">
+    <div class="h-[50vh] bg-red-600 w-full border-b-8 border-slate-700"></div>
+    <div class="h-[50vh] bg-[#F6F4EB] w-full"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full border-8 border-slate-700 bg-white"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-slate-700"></div>
+    <form action="pokemon" method="get" class="absolute top-1/4 left-1/2 -translate-x-1/2">
+        <input type="text" placeholder="Enter Pokemon Name" name="name" id="pokemon-name" class="focus:outline-none rounded-sm border border-slate-300 p-2">
+        <button type="submit" class="border border-slate-300 rounded-sm bg-white text-slate-700 hover:bg-slate-200 transition-all ease-in-out duration-200 p-2" >Search</button>
+    </form>
+</body>
+</html>
